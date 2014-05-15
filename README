@@ -9,7 +9,7 @@ Minimal but easy to use. The main goal is to
 provide API in python for a client implementation
 of the BitID protocol.
 
-Just install the exe in "bin" and enjoy!
+Just install the exe and enjoy!
 When clicking on a "bitid://" link in your browser,
 it will launch SimpleBitID and identify you.
 
