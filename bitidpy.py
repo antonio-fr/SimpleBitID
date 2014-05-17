@@ -24,11 +24,11 @@ def postserv(uri,address,signature):
 	#Return 1 if other error as connection or bad argument
 	headers = {"Content-type": "application/json"}
 	try:
-		data = { "uri"      : uri      , 
-                 "address"  : address  , 
-                 "signature": signature }
+		data = { "uri"      : uri      ,  # string of BitID full URI (link clicked) "bitid://server.dom/[dir1/dir2/...]/callback?x=abcdef?u=1"
+                 "address"  : address  ,  # string of the public key hash
+                 "signature": signature } # string of the URI signed (Qt compliant) in base64
 		paramsj = json.dumps(data)
-		server_url = uri.split('/')
+		server_url = uri.split('/',3)
 		assert server_url[0]=="bitid:"
 		page = server_url[3].split('?')[0]
 		conni = httplib.HTTPConnection(server_url[2],80,timeout=4)

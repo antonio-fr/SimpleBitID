@@ -1,20 +1,34 @@
-SimpleBitID
-v0.01
+ SimpleBitID
+v0.02
 Copyright (C) 2014  Antoine FERRON
 
 
-This is a really basic client for BitID protocol
-for Windows (XP, 2k, Vista, 7, 8 & 8.1).
-Minimal but easy to use. The main goal is to 
-provide API in python for a client implementation
-of the BitID protocol.
+This is a really basic client for BitID protocol for PC.
+There is a one-click installer for Windows (XP, 2k, Vista, 7, 8 & 8.1).
+Minimal but easy to use. The main goal is to provide API in
+python for a client implementation of the BitID protocol.
 
-Just install the exe and enjoy!
+
+ Windows Install :
+Just install the exe (in release) and enjoy!
+
+ Linux or MacOSX install:
+- Be sure you have python 2.7 installed
+- Download the tar.gz in release
+- Uncompress it
+- register "bitid" protocol to call something like:
+	"python2.7 /dir-to-simplebitiD/SimplebitID.py %s" 
+Note that in Linux, the window manager is responsible for that.
+So it depends if you have Gnome, KDE or XFCE, LXDE, etc...
+It can be also added directly in the web browser sometimes.
+
+	
+ Usage :
 When clicking on a "bitid://" link in your browser,
 it will launch SimpleBitID and identify you.
 
 
-
+ Licence related:
 Some portions based on :
 "python-ecdsa" Copyright (C) 2010 Brian Warner (MIT Licence)
 "Simple Python elliptic curves and ECDSA" Copyright (C) 2005 
@@ -33,27 +47,45 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-Bit ID Protocol
+ Bit ID Protocol :
 https://github.com/bitid/bitid/blob/master/BIP_draft.md
 Demos : http://bitid.bitcoin.blue/
-or http://bitid-demo.herokuapp.com/
 
+
+ More details abour SimpleBitID :
 No GUI for now. Just use a 256 bits key in your
-directory. Random source is CryptGenRandom.
+user directory. 
 
 At startup, it generates your private key in
 %APPDATA%\SimpleBitID
+This file contains private key in ascii-hex (without "0x").
+You can import your own key in converting and putting it
+in this file.
 
 ECDSA uses random "k", not deterministic signing.
 
+Random source for key generation or signing is :
+CryptGenRandom in Windows
+/dev/urandom   in Unix-like
 
-Possible improvements:
+
+ Possible improvements:
 - PIN or password to read private key file (AES encrytion)
 - GUI
-- Compatibility with Linux and MacOSX
+- Easy install in Linux and MacOSX
 - Use other random sources
 - Determinstic ECDSA (RFC 6979)
+- Key Import and Export
 
 
-Compilation (make of bin installer):
-TBDL
+ Compilation : make of bin installer in Windows:
+1) Needs
+- Python 2.7.6 32bits
+- py2exe 0.6.9 Win32 py27
+- 7zip 9.2
+- 7zip SFX Builder 2.0.5
+2) Edit BUILD.dat
+To point to the right directory of python, 7zip & 7zSfxB
+3) Launch BUILD.dat
+Edit SFX_data or change info in 7zSfxB if you want
+4) At the end, one new exe is created which is Win installer.
