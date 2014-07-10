@@ -1,4 +1,4 @@
-
+#! /usr/bin/env python
 
 # py2exe Setup file for SimpleBitID
 # Copyright (C) 2014  Antoine FERRON

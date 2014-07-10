@@ -1,5 +1,5 @@
  SimpleBitID
-v0.02
+v0.05
 Copyright (C) 2014  Antoine FERRON
 
 
@@ -67,6 +67,8 @@ ECDSA uses random "k", not deterministic signing.
 Random source for key generation or signing is :
 CryptGenRandom in Windows
 /dev/urandom   in Unix-like
+
+For RFC6979 signature, you can check ECDSA_BTC.py in Fast_Sign_Verify 
 
 
  Possible improvements:

@@ -22,7 +22,7 @@ import bitidpy
 from time import sleep
 import _winreg as wreg #for installer
 
-print "\n SimpleBitID v0.02\n\n"
+print "\n SimpleBitID v0.05\n\n"
 try:
 	raw_uri=sys.argv[1]
 	assert raw_uri[0:8] == "bitid://"

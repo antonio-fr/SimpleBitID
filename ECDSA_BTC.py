@@ -177,10 +177,14 @@ class Private_key( object ):
     n = G.order()
     p1 = k * G
     r = p1.x()
-    pby= p1.y()&1
     if r == 0: raise RuntimeError, "amazingly unlucky random number r"
     s = ( inverse_mod( k, n ) * ( hash + ( self.secret_multiplier * r ) % n ) ) % n
     if s == 0: raise RuntimeError, "amazingly unlucky random number s"
+    if s > (n>>1):
+        s = n - s
+        pby = (p1.y()+1)&1
+    else:
+        pby = (p1.y())&1
     return Signature( pby, r, s )
 
 def randoml(pointgen):
